@@ -34,7 +34,7 @@ import {constants} from "http2";
   // Root Endpoint
   // Displays a simple message to the user
   app.get( "/", async ( req, res ) => {
-    res.send("try GET /filteredimage?image_url={{}}")
+    res.send("[SEARCH IMAGE] - [GET] => /filteredimage?image_url={{}}")
   } );
   
 
