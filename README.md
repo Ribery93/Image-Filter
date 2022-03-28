@@ -46,3 +46,11 @@ Prevent requests without valid authentication headers.
 
 Add your own domain name and have it point to the running services (try adding a subdomain name to point to the processing server)
 > !NOTE: Domain names are not included in AWS’ free tier and will incur a cost.
+
+###Usage
+Elasticbean Adress - > http://udagram-image-filter.us-east-1.elasticbeanstalk.com/
+Access the link submitting the link of the image http://udagram-image-filter.us-east-1.elasticbeanstalk.com/filteredimage?image_url=IMAGE_URL
+
+Example: http://udagram-image-filter.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://picsum.photos/id/237/200/300
+
+
