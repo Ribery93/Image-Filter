@@ -29,6 +29,19 @@ import {constants} from "http2";
 
   /**************************************************************************** */
 
+  app.get( "/filteredimage", async ( req, res ) => {
+    let {image_url} = req.query;
+    if (!image_url){
+      res.status(constants.HTTP_STATUS_BAD_REQUEST).send('Error : Empty image url submitted');
+    } else {
+      await filterImageFromURL(image_url).then( function (filtered_path){
+        res.sendFile(filtered_path, () => {
+          deleteLocalFiles([filtered_path]);
+        });
+      }).catch(()=> res.status(constants.HTTP_STATUS_BAD_REQUEST).send('The image can not be filtered - check the link submitted '));
+    }
+  });
+
   //! END @TODO1
 
   // Root Endpoint
