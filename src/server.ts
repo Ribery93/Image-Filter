@@ -35,10 +35,9 @@ import {constants} from "http2";
       res.status(constants.HTTP_STATUS_UNSUPPORTED_MEDIA_TYPE).send('Error : Empty image url submitted');
     } else {
       await filterImageFromURL(image_url).then( function (filtered_path){
-        res.sendFile(filtered_path, () => {
+        res.status(constants.HTTP_STATUS_OK).sendFile(filtered_path, () => {
           deleteLocalFiles([filtered_path]);
         });
-        res.status(constants.HTTP_STATUS_OK).send('Success : The image url was submitted')
       }).catch(()=> res.status(constants.HTTP_STATUS_INTERNAL_SERVER_ERROR).send('The image can not be filtered - check the link submitted '));
     }
   });
